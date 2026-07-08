@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #f7f3ec;
+  --ink: #1a1215;
+  --pink: #ff2d78;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---- Texture utilities ---- */
+.tex-halftone {
+  background-image: radial-gradient(currentColor 1px, transparent 1.4px);
+  background-size: 7px 7px;
+}
+.tex-halftone-lg {
+  background-image: radial-gradient(currentColor 1.6px, transparent 2px);
+  background-size: 11px 11px;
+}
+.tex-seigaiha {
+  background-image: radial-gradient(
+      circle at 50% 100%,
+      transparent 0,
+      transparent 9px,
+      currentColor 9px,
+      currentColor 10px,
+      transparent 10px,
+      transparent 18px,
+      currentColor 18px,
+      currentColor 19px,
+      transparent 19px,
+      transparent 27px,
+      currentColor 27px,
+      currentColor 28px,
+      transparent 28px
+    );
+  background-size: 36px 18px;
+  background-position: 0 0;
+}
+.tex-grid {
+  background-image: linear-gradient(currentColor 1px, transparent 1px),
+    linear-gradient(90deg, currentColor 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ---- Marquee helpers ---- */
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+.marquee-track-y {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+.pause-on-hover:hover .marquee-track,
+.pause-on-hover:hover .marquee-track-y {
+  animation-play-state: paused;
+}
+
+/* ---- Scrollbar (subpages) ---- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #efe7d8;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff2d78;
+  border-radius: 999px;
+  border: 2px solid #efe7d8;
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: #ff2d78;
+  color: #f7f3ec;
+}
+
+/* ---- Utility: no-scroll homepage (desktop only) ---- */
+.no-scroll-viewport {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .no-scroll-viewport {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+}
+
+/* ---- Duotone-ish image treatment ---- */
+.duotone {
+  filter: saturate(0.85) contrast(1.05);
+}
+.duotone-pink {
+  filter: grayscale(0.4) sepia(0.3) hue-rotate(300deg) saturate(2) contrast(1.05);
+}
+
+/* ---- Panel base ---- */
+.panel {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Stamp mark ---- */
+.hanko {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 800;
+  background: #ff2d78;
+  color: #f7f3ec;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15) inset;
+}
+
+/* ---- Link arrow nudge ---- */
+.arrow-nudge {
+  transition: transform 0.25s ease;
+}
+.group:hover .arrow-nudge,
+.arrow-nudge:hover {
+  transform: translate(2px, -2px);
+}
+
+/* ---- Fade-in on mount ---- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ---- Reveal on scroll (subpages) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Hide scrollbar on horizontal carousels ---- */
+.no-bar::-webkit-scrollbar {
+  display: none;
+}
+.no-bar {
+  scrollbar-width: none;
+}
