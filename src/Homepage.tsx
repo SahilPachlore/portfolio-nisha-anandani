@@ -23,16 +23,16 @@ export function Homepage({ navigate }: { navigate: (r: Subpage | 'home') => void
     <div className="no-scroll-viewport bg-cream flex flex-col">
       {/* ===== BENTO GRID ===== */}
       {/* Desktop (lg+): explicit 12-col placement.
-          Cols:  1-5      6-8        9-11       12
-          Rows 1-3:  Hero     Collab     Tweets     Index
-          Rows 4-6:  Hero     Reels      Reels      Index
-          Rows 7-8:  Hero     Headline   Headline   Index
+          Cols:  1-4      5-8        9-12
+          Rows 1-3:  Collab   HERO       Tweets
+          Rows 4-6:  Reels    HERO       Index
+          Rows 7-8:  Headline HERO       Index
       */}
       <main className="flex-1 min-h-0 grid grid-cols-6 grid-rows-[repeat(16,minmax(0,1fr))] auto-rows-fr gap-1.5 p-1.5 sm:gap-2 sm:p-2 lg:grid-cols-12 lg:grid-rows-8 lg:gap-2.5 lg:p-3">
         {/* 1. CENTER HERO — VIDEO */}
         <section
           onClick={() => navigate('about')}
-          className="panel group col-span-6 row-span-5 sm:col-span-3 sm:row-span-7 lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:row-span-8 bg-ink rounded-xl cursor-pointer border-2 border-pink"
+          className="panel group col-span-6 row-span-5 sm:col-span-3 sm:row-span-7 lg:col-span-4 lg:col-start-5 lg:row-start-1 lg:row-span-8 bg-ink rounded-xl cursor-pointer border-2 border-pink"
         >
           <VideoPanel className="absolute inset-0" />
           <HalftoneCorners color="text-pink" />
@@ -53,7 +53,7 @@ export function Homepage({ navigate }: { navigate: (r: Subpage | 'home') => void
         {/* 2. TOP-LEFT — LATEST BRAND COLLAB */}
         <section
           onClick={() => navigate('brand-collabs')}
-          className="panel group col-span-3 row-span-3 sm:col-span-3 sm:row-span-3 lg:col-span-3 lg:col-start-6 lg:row-start-1 lg:row-span-3 bg-cream-2 rounded-xl cursor-pointer border border-ink/10 hover:border-pink transition-colors"
+          className="panel group col-span-3 row-span-3 sm:col-span-3 sm:row-span-3 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:row-span-3 bg-cream-2 rounded-xl cursor-pointer border border-ink/10 hover:border-pink transition-colors"
         >
           <div className="relative h-full flex flex-col">
             <div className="relative h-[55%] overflow-hidden">
@@ -74,7 +74,7 @@ export function Homepage({ navigate }: { navigate: (r: Subpage | 'home') => void
         </section>
 
         {/* 3. TWEET FEED — vertical marquee */}
-        <section className="panel col-span-3 row-span-3 sm:col-span-3 sm:row-span-3 lg:col-span-3 lg:col-start-9 lg:row-start-1 lg:row-span-3 bg-ink rounded-xl border border-ink/10 flex flex-col">
+        <section className="panel col-span-3 row-span-3 sm:col-span-3 sm:row-span-3 lg:col-span-4 lg:col-start-9 lg:row-start-1 lg:row-span-3 bg-ink rounded-xl border border-ink/10 flex flex-col">
           <div className="flex items-center justify-between px-3 py-2 border-b border-cream/10">
             <Eyebrow className="text-pink-300">
               <span className="w-1.5 h-1.5 rounded-full bg-pink animate-pulse-dot inline-block mr-1" />
@@ -107,7 +107,7 @@ export function Homepage({ navigate }: { navigate: (r: Subpage | 'home') => void
         {/* 4. REELS — horizontal marquee */}
         <section
           onClick={() => navigate('reels')}
-          className="panel group col-span-6 row-span-2 sm:col-span-6 sm:row-span-2 lg:col-span-6 lg:col-start-6 lg:row-start-4 lg:row-span-3 bg-cream-2 rounded-xl cursor-pointer border border-ink/10 hover:border-pink transition-colors flex flex-col"
+          className="panel group col-span-6 row-span-2 sm:col-span-6 sm:row-span-2 lg:col-span-4 lg:col-start-1 lg:row-start-4 lg:row-span-3 bg-cream-2 rounded-xl cursor-pointer border border-ink/10 hover:border-pink transition-colors flex flex-col"
         >
           <div className="flex items-center justify-between px-3 py-2">
             <Eyebrow className="text-pink">Reel Rush</Eyebrow>
@@ -133,7 +133,7 @@ export function Homepage({ navigate }: { navigate: (r: Subpage | 'home') => void
         </section>
 
         {/* 5. RIGHT VERTICAL INDEX STACK */}
-        <section className="panel col-span-6 row-span-3 sm:col-span-3 sm:row-span-7 lg:col-span-3 lg:col-start-10 lg:row-start-1 lg:row-span-8 bg-cream rounded-xl border border-ink/10 flex flex-col overflow-hidden">
+        <section className="panel col-span-6 row-span-3 sm:col-span-3 sm:row-span-7 lg:col-span-4 lg:col-start-9 lg:row-start-4 lg:row-span-5 bg-cream rounded-xl border border-ink/10 flex flex-col overflow-hidden">
           <div className="px-3 py-2 border-b border-ink/10">
             <Eyebrow className="text-pink">The Index</Eyebrow>
           </div>
@@ -170,7 +170,7 @@ export function Homepage({ navigate }: { navigate: (r: Subpage | 'home') => void
         {/* 6. SECONDARY HEADLINE PANEL */}
         <section
           onClick={() => navigate('about')}
-          className="panel group col-span-6 row-span-2 sm:col-span-6 sm:row-span-2 lg:col-span-6 lg:col-start-6 lg:row-start-7 lg:row-span-2 bg-pink rounded-xl cursor-pointer relative overflow-hidden flex flex-col justify-center px-4 sm:px-6"
+          className="panel group col-span-6 row-span-2 sm:col-span-6 sm:row-span-2 lg:col-span-4 lg:col-start-1 lg:row-start-7 lg:row-span-2 bg-pink rounded-xl cursor-pointer relative overflow-hidden flex flex-col justify-center px-4 sm:px-6"
         >
           <div className="absolute inset-0 tex-seigaiha text-pink-600 opacity-20 pointer-events-none" />
           <div className="relative">
