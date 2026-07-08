@@ -100,14 +100,12 @@ body {
 
 /* ---- Utility: no-scroll homepage (desktop only) ---- */
 .no-scroll-viewport {
-  height: 100vh;
-  height: 100dvh;
   overflow: hidden;
 }
-@media (max-width: 767px) {
+@media (max-width: 639px) {
   .no-scroll-viewport {
     height: auto;
-    min-height: 100dvh;
+    min-height: calc(100dvh - 3.5rem);
     overflow: visible;
   }
 }

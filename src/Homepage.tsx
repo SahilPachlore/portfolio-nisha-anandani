@@ -20,7 +20,7 @@ export function Homepage({ navigate }: { navigate: (r: Subpage | 'home') => void
   const latestBrand = BRANDS[0];
 
   return (
-    <div className="no-scroll-viewport bg-cream flex flex-col">
+    <div className="no-scroll-viewport bg-cream flex flex-col h-[calc(100dvh-3.5rem)] sm:h-[calc(100dvh-4rem)]">
       {/* ===== BENTO GRID ===== */}
       {/* Desktop (lg+): explicit 12-col placement.
           Cols:  1-4      5-8        9-12

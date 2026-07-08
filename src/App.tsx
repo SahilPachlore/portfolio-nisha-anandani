@@ -15,7 +15,7 @@ function App() {
   const isHome = route === 'home';
 
   return (
-    <div className={isHome ? 'h-full' : 'min-h-screen'}>
+    <div className={isHome ? 'h-full overflow-hidden' : 'min-h-screen'}>
       <Navbar route={route} navigate={navigate} onHome={() => navigate('home')} />
 
       {isHome ? (
